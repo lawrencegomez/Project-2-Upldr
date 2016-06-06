@@ -1,0 +1,7 @@
+<h1>Welcome, <%= @user.name %></h1>
+
+<% if @user.name == 'Ranya' %>
+  <h3><%= p 'You so puuurdy' %></h3>
+  <% else %>
+  <h3><%= p 'not much else to do on this website quite yet...come back soon!' %></h3>
+  <%end%>

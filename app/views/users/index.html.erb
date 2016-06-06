@@ -1,0 +1,8 @@
+<h1>Welcome to this useless-ass website.</h1>
+<br><br>
+<h3>Current list of users in the database:</h3>
+<ul>
+  <% @users.each do |u| %>
+    <li><%= u.name %></li>
+    <% end %>
+</ul>
