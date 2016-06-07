@@ -6,9 +6,3 @@
     <li><%= u.name %></li>
     <% end %>
 </ul>
-
-<% @users.each do |i| %>
-  Title: <%= i.images.title %>
-  <%= image_tag(i.images.image_url) %>
-  Description: <%= i.images.description %>
-<% end %>

@@ -20,8 +20,8 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      # flash[:success] = "Welcome!"
-      redirect_to images_path
+      session[:user_id] = @user.id # creating the cookie when a new user is created so they have full access to the site
+      redirect_to user_path(@user)
     end
   end
 
