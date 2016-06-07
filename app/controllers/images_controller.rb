@@ -1,9 +1,9 @@
 class ImagesController < ApplicationController
 
-  before_action :authorize
+  before_action :authorize, only: [:index, :create, :new]
 
   def index
-    @images = Image.all
+    @images = Image.all.order("created_at DESC")
   end
 
   def create
@@ -35,7 +35,7 @@ class ImagesController < ApplicationController
 
 private
   def images_params
-    params.require(:image).permit(:title, :image_url, :description, :tags)
+    params.require(:image).permit(:title, :img, :description, :tags)
   end
 
 end

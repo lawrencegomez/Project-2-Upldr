@@ -1,8 +1,8 @@
 <h1>Welcome to this useless-ass website.</h1>
 <br><br>
 <h3>Current list of users in the database:</h3>
-<ul>
+<ul class='nav'>
   <% @users.each do |u| %>
-    <li><%= u.name %></li>
+    <li><%= image_tag u.avatar.url(:thumb) %><%= u.name %></li>
     <% end %>
 </ul>

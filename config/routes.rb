@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
-  root 'sessions#new'
+  get '/howTo' => 'extras#howTo', as: :how_to
+
+  root 'extras#index'
 
   resources :users
 

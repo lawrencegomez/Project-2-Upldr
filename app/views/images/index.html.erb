@@ -4,7 +4,7 @@
   <% @images.each do |i| %>
     <%= i.title.capitalize %> <br>
     <%= image_tag(i.image_url, size: '600x450', crop: 'fill') %> <br>
-    Uploaded <%= i.created_at.strftime("%d %b. %Y") + ' at ' + i.created_at.strftime("%H:%M") + ' by ' + i.user.name%> <br>
+    Uploaded <%= time_ago_in_words(i.created_at) + ' ago by ' + i.user.name%><br>
     Description: <%= i.description %> <br>
     <br><br><br>
     <% end %>

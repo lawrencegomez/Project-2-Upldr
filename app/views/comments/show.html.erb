@@ -3,4 +3,7 @@
 <p><%=@comment.body%>
 </p>
 
-<%= link_to 'Your Profile', user_path(@comment.user) %>
+<%= link_to 'Edit', edit_comment_path %>
+<%= link_to 'Delete', comment_path, method: :delete, data: { confirm: "Are you sure!" }%>
+
+<!-- <%= link_to 'Your Profile', user_path(@comment.user) %> -->

@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
 
@@ -14,7 +14,7 @@
         </li>
         <li>
           <% if !logged_in? %>
-              <%= link_to 'How To?', new_image_path %>
+              <%= link_to 'How To?', how_to_path %>
           <% end %>
         </li>
       </ul>
@@ -36,7 +36,7 @@
         </li>
         <li>
           <% if logged_in? %>
-            <%= link_to current_user.name, users_path(@users)%>
+            <%= link_to current_user.name, users_path(@user)%>
           <% end %>
         </li>
       </ul>

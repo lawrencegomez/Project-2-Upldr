@@ -28,6 +28,16 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'pg'
 
+# Paperclip gem for image file management
+gem "paperclip", "~> 4.3"
+
+gem 'haml', '~> 4.0', '>= 4.0.7'
+
+gem 'bootstrap-sass', '~> 3.3', '>= 3.3.6'
+
+# easy form maker
+gem 'simple_form', '~> 3.2', '>= 3.2.1'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
