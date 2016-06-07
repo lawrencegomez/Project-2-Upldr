@@ -1,2 +1,7 @@
-<h1>Images#show</h1>
-<p>Find me in app/views/images/show.html.erb</p>
+<h1><%= @image.title.capitalize %></h1>
+
+<%= image_tag(@image.image_url) %>
+<br>
+Description: <%= @image.description %>
+<br>
+Tags: <%= @image.tags %>

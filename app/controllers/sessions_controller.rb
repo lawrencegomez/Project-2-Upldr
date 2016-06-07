@@ -7,6 +7,9 @@ class SessionsController < ApplicationController
     if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id # creating the cookie
       redirect_to user_path(@user)
+    elsif !@user
+      flash[:danger] = 'That email does not exist the database. Please create an account'
+      redirect_to new_session_path
     else
       flash[:danger] = 'Invalid email/password combination'
       redirect_to new_session_path

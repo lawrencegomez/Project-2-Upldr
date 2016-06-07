@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20160606191814) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "comments", force: :cascade do |t|
     t.text     "body"
     t.integer  "user_id"
@@ -21,8 +24,8 @@ ActiveRecord::Schema.define(version: 20160606191814) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "comments", ["image_id"], name: "index_comments_on_image_id"
-  add_index "comments", ["user_id"], name: "index_comments_on_user_id"
+  add_index "comments", ["image_id"], name: "index_comments_on_image_id", using: :btree
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
 
   create_table "images", force: :cascade do |t|
     t.string   "title"
@@ -34,7 +37,7 @@ ActiveRecord::Schema.define(version: 20160606191814) do
     t.datetime "updated_at",  null: false
   end
 
-  add_index "images", ["user_id"], name: "index_images_on_user_id"
+  add_index "images", ["user_id"], name: "index_images_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
@@ -44,4 +47,7 @@ ActiveRecord::Schema.define(version: 20160606191814) do
     t.datetime "updated_at",      null: false
   end
 
+  add_foreign_key "comments", "images"
+  add_foreign_key "comments", "users"
+  add_foreign_key "images", "users"
 end

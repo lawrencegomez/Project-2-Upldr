@@ -1,7 +1,12 @@
 <h1>Welcome, <%= @user.name %></h1>
+<br>
+<h2>Below are your images:</h2>
 
-<% if @user.name == 'Ranya' %>
-  <h3><%= p 'You so puuurdy' %></h3>
-  <% else %>
-  <h3><%= p 'not much else to do on this website quite yet...come back soon!' %></h3>
-  <%end%>
+<%= link_to 'Upload New Image', new_image_path %> <br> <br> <br>
+
+<% @user.images.each do |i| %>
+  Title: <%= i.title %> <br>
+    <%= image_tag(i.image_url, size: '400x300', crop: 'fill') %> <br>
+  Description: <%= i.description %> <br>
+  Tags: <%= i.tags %> <br><br><br>
+<% end %>
