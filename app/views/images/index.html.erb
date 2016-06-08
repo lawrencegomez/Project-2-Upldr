@@ -1,11 +1,13 @@
 <h1>Image Feed</h1>
 
-<div class="container">
+<div id='pins' class='transitions-enabled'>
   <% @images.each do |i| %>
-    <%= i.title.capitalize %> <br>
-    <%= link_to (image_tag(i.img.url, size: '600x450', crop: 'fill')), edit_image_path(@current_user) %> <br>
-    Uploaded <%= time_ago_in_words(i.created_at) + ' ago by ' + i.user.name%><br>
-    Description: <%= i.description %> <br>
-    <br><br><br>
-    <% end %>
+      <div class="box panel panel-body">
+    <%= link_to (image_tag(i.img.url(:medium))), edit_image_path(i.id) %>
+      <div class="panel-body">
+          Uploaded <%= time_ago_in_words(i.created_at) + ' ago by ' + i.user.name%><br>
+          Description: <%= i.description %> <br>
+          <% end %>
+        </div>
+    </div>
 </div>

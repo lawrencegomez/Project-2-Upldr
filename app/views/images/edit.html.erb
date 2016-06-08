@@ -4,5 +4,6 @@
 <%= render 'form' %>
 
 <%= link_to 'cancel', images_path %>
+<%= link_to 'Delete', image_path, method: :delete, data: { confirm: "Are you sure!" }%>
 
 </div>

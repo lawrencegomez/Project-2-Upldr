@@ -1,7 +1,7 @@
 class ImagesController < ApplicationController
 
   before_action :set_image, only: [:edit, :show, :update, :destroy]
-  before_action :authorize, only: [:index, :create, :new]
+  before_action :authorize
 
   def index
     @images = Image.all.order("created_at DESC")
@@ -31,13 +31,13 @@ class ImagesController < ApplicationController
     if @image.update(images_params)
       redirect_to images_path
     else
-      redirect_to edit_edit_path(@image)
+      redirect_to edit_image_path(@image)
     end
   end
 
   def destroy
     @image.destroy
-      redirect_to images_path
+      redirect_to image_path
   end
 
 private
