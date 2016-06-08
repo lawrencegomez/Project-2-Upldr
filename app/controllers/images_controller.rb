@@ -1,5 +1,6 @@
 class ImagesController < ApplicationController
 
+  before_action :set_image, only: [:edit, :show, :update, :destroy]
   before_action :authorize, only: [:index, :create, :new]
 
   def index
@@ -24,16 +25,27 @@ class ImagesController < ApplicationController
   end
 
   def show
-    @image = Image.find(params[:id])
   end
 
   def update
+    if @image.update(images_params)
+      redirect_to images_path
+    else
+      redirect_to edit_edit_path(@image)
+    end
   end
 
   def destroy
+    @image.destroy
+      redirect_to images_path
   end
 
 private
+
+  def set_image
+    @image = Image.find(params[:id])
+  end
+
   def images_params
     params.require(:image).permit(:title, :img, :description, :tags)
   end

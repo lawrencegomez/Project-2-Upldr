@@ -11,3 +11,7 @@
   Description: <%= i.description.capitalize %> <br>
   Tags: <%= i.tags %> <br><br><br>
 <% end %>
+
+<% @user.comments.each do |c| %>
+  <li><%= c.body %></li>
+<% end %>

@@ -3,7 +3,7 @@
 <div class="container">
   <% @images.each do |i| %>
     <%= i.title.capitalize %> <br>
-    <%= image_tag(i.image_url, size: '600x450', crop: 'fill') %> <br>
+    <%= link_to (image_tag(i.img.url, size: '600x450', crop: 'fill')), edit_image_path(@current_user) %> <br>
     Uploaded <%= time_ago_in_words(i.created_at) + ' ago by ' + i.user.name%><br>
     Description: <%= i.description %> <br>
     <br><br><br>

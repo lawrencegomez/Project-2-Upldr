@@ -1,7 +1,11 @@
 <h1><%= @image.title.capitalize %></h1>
 
-<%= image_tag(@image.image_url) %>
+<%= image_tag(@image.img.url(:medium)) %>
 <br>
 Description: <%= @image.description %>
 <br>
 Tags: <%= @image.tags %>
+
+<%= link_to 'Edit', edit_image_path %>
+<%= link_to 'Accept', images_path %>
+<%= link_to 'Delete', images_path, method: :delete, data: { confirm: "Are you sure!" }%>
