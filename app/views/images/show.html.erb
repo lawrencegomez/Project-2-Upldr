@@ -1,11 +1,39 @@
-<h1><%= @image.title.capitalize %></h1>
+<% if Image.count > 0 %>
+<div id='pin_show' class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <div class="panel panel-default">
+      <div class="panel-heading image_image">
+        <%= image_tag(@image.img.url(:medium)) %>
+      </div>
+      <div class="panel-body">
+        <br>
+        Description: <%= @image.description %>
+        <br>
+        Tags: <%= @image.tags %> <br>
+        Submittted by: <%= @image.user.name %>
+      </div>
+          <div class="panel-footer">
+            <div class="row">
+              <div class="col-md-6">
+                <p class='user'>
+                  Submittted by:
+                  <%= @image.user.name %>
+                </p>
+                <div class="col-md-6">
+                  <div class="btn-group pull-right">
+                    <%= link_to 'Accept', images_path, class: 'btn btn-default' %>
+                    <%= link_to 'Edit', edit_image_path, class: 'btn btn-default'  %>
+                    <%= link_to 'Delete', images_path, method: :delete, data: { confirm: "Are you sure!" }, class: 'btn btn-default'%>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
 
-<%= image_tag(@image.img.url(:medium)) %>
-<br>
-Description: <%= @image.description %>
-<br>
-Tags: <%= @image.tags %>
 
-<%= link_to 'Edit', edit_image_path %>
-<%= link_to 'Accept', images_path %>
-<%= link_to 'Delete', images_path, method: :delete, data: { confirm: "Are you sure!" }%>
+    </div>
+    <% else %>
+      <h1>Sorry, no images to display</h1>
+  </div>
+</div>
+<% end %>

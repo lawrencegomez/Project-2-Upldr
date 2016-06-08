@@ -1,13 +1,33 @@
+<% if Image.count > 0 %>
+
 <h1>Image Feed</h1>
 
 <div id='pins' class='transitions-enabled'>
   <% @images.each do |i| %>
-      <div class="box panel panel-body">
-    <%= link_to (image_tag(i.img.url(:medium))), edit_image_path(i.id) %>
-      <div class="panel-body">
-          Uploaded <%= time_ago_in_words(i.created_at) + ' ago by ' + i.user.name%><br>
-          Description: <%= i.description %> <br>
-          <% end %>
+    <div class="box panel panel-default">
+      <%= link_to image_tag(i.img.url), edit_image_path(i.id) %>
+        <div class="panel-body">
+          <h5><%= i.description %></h5>
+          <h6>Uploaded <%= time_ago_in_words(i.created_at) + ' ago by ' + i.user.name%></h6>
         </div>
     </div>
+    <% end %>
 </div>
+
+<% else %>
+  <h1>No images to dislay :-(</h1>
+  <%= link_to 'Upload Image', new_image_path %>
+
+  <% end %>
+
+
+<script>
+$(function(){
+  $('#pins').imagesLoaded(function(){
+    $('#pins').masonry({
+      itemSelector: '.box',
+      isFitWidth: true
+    })
+  })
+})
+</script>

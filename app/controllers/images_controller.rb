@@ -28,7 +28,7 @@ class ImagesController < ApplicationController
   end
 
   def update
-    if @image.update(images_params)
+    if @image.update_attributes(images_params)
       redirect_to images_path
     else
       redirect_to edit_image_path(@image)
@@ -36,14 +36,16 @@ class ImagesController < ApplicationController
   end
 
   def destroy
-    @image.destroy
-      redirect_to image_path
+      @image.destroy
+        redirect_to images_path
   end
 
 private
 
   def set_image
+    if Image.count > 0
     @image = Image.find(params[:id])
+    end
   end
 
   def images_params

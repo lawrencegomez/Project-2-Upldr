@@ -8,16 +8,21 @@
       <ul class="nav navbar-nav">
         <li>
           <% if logged_in? %>
-            <%= link_to current_user.name, users_path(@user)%>
+            <%= link_to 'My Account', edit_user_path(current_user.id)%>
           <% end %>
         </li>
         <li>
           <% if logged_in? %>
-          <%= link_to 'Home', images_path %></li>
+            <%= link_to 'My Images', user_path(current_user.id)%>
+          <% end %>
+        </li>
+        <li>
+          <% if logged_in? %>
+          <%= link_to 'Feed', images_path %></li>
           <% end %>
         <li>
           <% if logged_in? %>
-          <%= link_to 'Upload Picture', new_image_path %>
+          <%= link_to 'Upload Picture +', new_image_path %>
           <% end %>
         </li>
       </ul>

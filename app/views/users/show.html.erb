@@ -6,7 +6,7 @@
 
 <% @user.images.each do |i| %>
   Title: <%= i.title.capitalize %> <br>
-    <%= image_tag(i.image_url, size: '400x300', crop: 'fill') %> <br>
+  <li><%= link_to (image_tag(i.img.url(:medium))), edit_image_path(i.id) %></li><br>
   Uploaded <%= i.created_at.strftime("%d %b. %Y") + ' at ' + i.created_at.strftime("%H:%M") %> <br>
   Description: <%= i.description.capitalize %> <br>
   Tags: <%= i.tags %> <br><br><br>
