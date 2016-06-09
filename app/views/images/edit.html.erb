@@ -1,9 +1,12 @@
-<div class="col-md-6 col-md-offset-3">
-  <h1>Edit Image</h1>
-<%= image_tag(@image.img.url(:medium)) %>
-<%= render 'form' %>
+<div class="text-center">
+  <h1>Edit Image</h1> <br>
+</div>
 
-<%= link_to 'cancel', images_path %>
-<%= link_to 'Delete', image_path, method: :delete, data: { confirm: "Are you sure!" }%>
-
+<div class="row">
+  <div class="col-md-9">
+    <%= render 'form' %>
+  </div>
+  <div class="col-md-3">
+    <%= image_tag(@image.img.url(:medium)) %>
+  </div>
 </div>

@@ -1,11 +1,13 @@
 <% if Image.count > 0 %>
 
-<h1>Image Feed</h1>
+<div class="text-center">
+  <h1>Image Feed</h1><br>
+</div>
 
 <div id='pins' class='transitions-enabled'>
   <% @images.each do |i| %>
     <div class="box panel panel-default">
-      <%= link_to image_tag(i.img.url), edit_image_path(i.id) %>
+      <%= link_to image_tag(i.img.url), image_path(i.id) %>
         <div class="panel-body">
           <h5><%= i.description %></h5>
           <h6>Uploaded <%= time_ago_in_words(i.created_at) + ' ago by ' + i.user.name%></h6>

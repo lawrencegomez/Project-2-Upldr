@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   has_attached_file :avatar,
                     :storage => :s3,
                     styles: { medium: "300x300>", thumb: "80x80"},
-                    default_url: "/images/ninja.png",
+                    default_url: "assets/images/ninja.png",
                     url: ":s3_domain_url",
                     path: "/:class/:attachment/:id_partition/:style/:filename",
                     :s3_credentials => Proc.new{|a| a.instance.s3_credentials }

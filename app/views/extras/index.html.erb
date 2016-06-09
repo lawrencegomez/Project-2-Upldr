@@ -6,8 +6,8 @@
       Welcome to my website :-)
     </p>
     <p>
-      <a class="btn btn-primary btn-lg" href="#" role="button">Log In »</a>
-      <a class="btn btn-primary btn-lg" href="#" role="button">Sign Up! »</a>
+      <%= link_to 'Log In', new_session_path, class: 'btn btn-primary btn-lg' %>
+      <%= link_to 'Create Account', new_user_path, class: 'btn btn-primary btn-lg' %>
     </p>
   </div>
 </div>

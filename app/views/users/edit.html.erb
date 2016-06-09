@@ -1,4 +1,14 @@
-<h1>Edit your account below</h1>
-<br><br>
-<%= image_tag(@user.avatar.url(:medium)) %>
-<%= render 'form' %>
+<div class="text-center">
+  <h1>Account Information</h1>
+  <br><br>
+</div>
+<div class="container-fluid">
+<div class="row">
+  <div class="col-md-4 pull-right">
+    <%= image_tag(@user.avatar.url(:medium)) %>
+  </div>
+  <div class="col-md-8">
+    <%= render 'form2' %>
+  </div>
+</div>
+</div>

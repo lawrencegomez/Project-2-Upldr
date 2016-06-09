@@ -1,17 +1,41 @@
-<h1>Welcome, <%= @user.name %></h1>
-<br>
-<h2>Below are your images:</h2>
+<div class="text-center">
+  <% if @current_user.images.count < 1 %>
+    <h1>You haven't uploaded any images yet :-( </h1>
+    <br>
+    <%= link_to 'Upload Your 1st Image', new_image_path, class: 'btn btn-primary'%>
+    <br> <br>
+  <% else %>
+    <h1>Your uploaded images</h1>
+    <br>
+    <%= link_to 'Upload New Image', new_image_path, class: 'btn btn-primary'%>
+    <br> <br>
+  <% end %>
+</div>
 
-<%= link_to 'Upload New Image', new_image_path %> <br> <br> <br>
+<div class="row">
+  <div class="col-md-12">
+      <div id='pins' class='transitions-enabled'>
+        <% @user.images.each do |i| %>
+          <div class="box panel panel-default">
+            <%= link_to (image_tag(i.img.url)), edit_image_path(i.id) %>
+              <div class="panel-body">
+                <h5><%= i.description.capitalize %></h5>
+                <h5><%= i.tags.capitalize %></h5>
+                <h6>Uploaded <%= time_ago_in_words(i.created_at) + ' ago by you' %></h6>
+              </div>
+          </div>
+          <% end %>
+      </div>
+    </div>
+</div>
 
-<% @user.images.each do |i| %>
-  Title: <%= i.title.capitalize %> <br>
-  <li><%= link_to (image_tag(i.img.url(:medium))), edit_image_path(i.id) %></li><br>
-  Uploaded <%= i.created_at.strftime("%d %b. %Y") + ' at ' + i.created_at.strftime("%H:%M") %> <br>
-  Description: <%= i.description.capitalize %> <br>
-  Tags: <%= i.tags %> <br><br><br>
-<% end %>
-
-<% @user.comments.each do |c| %>
-  <li><%= c.body %></li>
-<% end %>
+<script>
+$(function(){
+  $('#pins').imagesLoaded(function(){
+    $('#pins').masonry({
+      itemSelector: '.box',
+      isFitWidth: true
+    })
+  })
+})
+</script>

@@ -1,8 +1,15 @@
-<div class="container">
-  <%= link_to 'New Comment', new_comment_path %> <br><br> <br>
-  <h1>Recent Comments</h1><br>
-  <% @comments.each do |c| %>
-    <%= c.body %> <br>
-    Comment added <%= time_ago_in_words(c.created_at) + ' ago by ' + c.user.name %><br><br><br><br>
+<div class="text-center">
+  <% if @current_user.comments.count > 0 %>
+    <%= link_to 'New Comment', new_comment_path, class: 'btn btn-primary' %> <br><br> <br>
+    <h1>Recent Comments</h1><br>
+    <% @comments.each do |c| %>
+      <% if c.user == current_user %>
+        <%= link_to c.body, edit_comment_path(c.id) %> <br>
+        Comment added <%= time_ago_in_words(c.created_at) + ' ago by ' + c.user.name %><br><br><br><br>
+      <% end %>
     <% end %>
+  <% else %>
+    <h1>You haven't made any comments yet :-(</h1>
+    <%= link_to 'New Comment', new_comment_path, class: 'btn btn-primary' %> <br><br> <br>
+  <% end %>
 </div>

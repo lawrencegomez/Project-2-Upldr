@@ -22,13 +22,14 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id # creating the cookie when a new user is created so they have full access to the site
-      redirect_to user_path(@user)
+      flash[:success] = 'You have successfully created an account!'
+      redirect_to images_path
     end
   end
 
   def update
     if @user.update_attributes(user_params)
-      redirect_to user_path(@user)
+      redirect_to images_path
     else
       redirect_to edit_user_path(@user)
     end

@@ -40,6 +40,8 @@ class ImagesController < ApplicationController
         redirect_to images_path
   end
 
+
+
 private
 
   def set_image
@@ -49,7 +51,7 @@ private
   end
 
   def images_params
-    params.require(:image).permit(:title, :img, :description, :tags)
+    params.require(:image).permit(:title, :img, :description, :tags, :image_remote_url)
   end
 
 end
