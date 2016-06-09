@@ -7,9 +7,9 @@
       <div class="panel-body">
         Description: <%= @image.description %>
         <br><br>
-        Tags: <%= @image.tags %> <br> <br>
+        <!-- Tags: <%= @image.tags %> <br> <br> -->
         <% @image.comments.each do |c| %>
-          <p><%= link_to c.user.name, users_path %>: <%= c.body %> (<%= time_ago_in_words(c.created_at) + ' ago'%>)</p>
+          <p><%= link_to c.user.name, user_path(c.user.id) %>: <%= c.body %> (<%= time_ago_in_words(c.created_at) + ' ago'%>)</p>
         <% end %>
       </div>
       <div class="panel-footer">

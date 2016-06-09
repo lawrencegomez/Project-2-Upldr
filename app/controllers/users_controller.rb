@@ -24,11 +24,14 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id # creating the cookie when a new user is created so they have full access to the site
       flash[:success] = 'You have successfully created an account!'
       redirect_to images_path
+    else
+      flash[:danger] = 'Error creating account. Ensure all information '
+      redirect_to :back
     end
   end
 
   def update
-    if @user.update_attributes(user_params)
+    if @user.update(user_params)
       redirect_to images_path
     else
       redirect_to edit_user_path(@user)

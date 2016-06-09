@@ -1,14 +1,13 @@
 <div class="text-center">
   <% if @current_user.images.count < 1 %>
-    <h1>You haven't uploaded any images yet :-( </h1>
+    <h1>No images exist in <%= @current_user.name %>'s library </h1>
     <br>
     <%= link_to 'Upload Your 1st Image', new_image_path, class: 'btn btn-primary'%>
     <br> <br>
   <% else %>
-    <h1>Your uploaded images</h1>
+    <h1>Image library</h1>
     <br>
-    <%= link_to 'Upload New Image', new_image_path, class: 'btn btn-primary'%>
-    <br> <br>
+    <br>
   <% end %>
 </div>
 

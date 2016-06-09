@@ -1,6 +1,5 @@
 <div class="text-center">
   <% if @current_user.comments.count > 0 %>
-    <%= link_to 'New Comment', new_comment_path, class: 'btn btn-primary' %> <br><br> <br>
     <h1>Recent Comments</h1><br>
     <% @comments.each do |c| %>
       <% if c.user == current_user %>

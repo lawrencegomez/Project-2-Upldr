@@ -3,6 +3,12 @@ class User < ActiveRecord::Base
   has_many :images
   has_many :comments
 
+  validates_uniqueness_of :email
+  validates :password, confirmation: true
+  validates :password_confirmation, presence: true
+  validates :name, length: { minimum: 2 }
+  validates :password, length: { in: 6..20 }
+
   has_attached_file :avatar,
                     :storage => :s3,
                     styles: { medium: "300x300>", thumb: "80x80"},
