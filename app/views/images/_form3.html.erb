@@ -11,14 +11,12 @@
     </div>
   <% end %>
 
-  <%= f.input :title, input_html: { maxLength: 40, class: 'form-control' }%>
-  <%= f.input :description, input_html: { class: 'form-control' } %>
-  <%= f.input :tags, input_html: { class: 'form-control' } %>
-  <%= f.input :img, input_html: { class: 'form-control' } %>
   <%= f.fields_for :comments do |c| %>
+  <p>
+    Comment:
+  </p>
   <%= c.input :body, input_html: { class: 'form-control'}%>
   <% end %>
-  <%= f.button :submit, class: 'btn btn-success' %>
-  <%= link_to "Cancel", images_path, class: 'btn btn-primary' %>
+  <%= f.button :submit, 'Submit Comment', class: 'btn btn-success' %>
 
 <% end %>

@@ -43,7 +43,6 @@ class UsersController < ApplicationController
 private
 
   def set_user
-  # use the :id to find one vampire in the database
   @user = User.find(params[:id])
   end
 

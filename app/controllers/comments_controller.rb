@@ -8,36 +8,50 @@ class CommentsController < ApplicationController
   end
 
   def create
+    @image = Image.find_by_id(params[:comment][:image])
     @comment = Comment.new(comments_params)
+    @comment.image = @image
     @comment.user = current_user
+    # logger.debug(@image)
     if @comment.save
-      redirect_to comments_path
+      redirect_to image_path(@image)
     else
-      redirect_to new_comment_path
+      redirect_to new_image_comment_path(@image)
     end
   end
 
   def new
-    @comment = Comment.new
+    @image = Image.find(params[:image_id])
+    @comment = @image.comments.build
   end
 
   def edit
+    @comment = Comment.find(params[:id])
+    @image = @comment.image
   end
 
   def show
+    @comment = Comment.find(params[:id])
   end
 
   def update
+    @image = Image.find_by_id(params[:comment][:image])
+    @comment = Comment.find(params[:id])
     if @comment.update(comments_params)
-      redirect_to comments_path
+      redirect_to image_comment_path(@image, @comment)
     else
-      redirect_to edit_comment_path(@comment)
+      redirect_to edit_image_comment_path(@image, @comment)
     end
   end
 
   def destroy
-    @comment.destroy
-      redirect_to comments_path
+    @image = Image.find(params[:image_id])
+    @comment = Comment.find(params[:id])
+    if @comment.destroy
+      redirect_to image_path(@image)
+    else
+      redirect_to image_path(@images)
+    end
   end
 
 private

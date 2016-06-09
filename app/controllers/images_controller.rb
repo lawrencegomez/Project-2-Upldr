@@ -5,13 +5,15 @@ class ImagesController < ApplicationController
 
   def index
     @images = Image.all.order("created_at DESC")
+    # @comments << Comment.all
   end
 
   def create
     @image = Image.new(images_params)
     @image.user = current_user
     if @image.save
-      redirect_to image_path(@image)
+      flash[:success] = 'Your image has been uploaded sucessfully!'
+      redirect_to images_path
     else
       redirect_to new_image_path
     end
@@ -42,7 +44,7 @@ class ImagesController < ApplicationController
 
   def upvote
     @image.upvote_by current_user
-      redirect_to :back
+      redirect_to images_path
   end
 
 
@@ -56,7 +58,7 @@ private
   end
 
   def images_params
-    params.require(:image).permit(:title, :img, :description, :tags, :image_remote_url)
+    params.require(:image).permit(:title, :img, :description, :tags, :image_remote_url, :comments_attributes => [:id, :body])
   end
 
 end

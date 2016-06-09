@@ -3,6 +3,7 @@ class Image < ActiveRecord::Base
 
   belongs_to :user
   has_many :comments
+  # accepts_nested_attributes_for :comments
 
   has_attached_file :img,
                     :storage => :s3,

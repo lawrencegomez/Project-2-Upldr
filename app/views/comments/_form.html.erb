@@ -13,8 +13,8 @@
   <% end %>
 
     <%= f.input :body, input_html: { class: 'form-control' }%>
+    <%= f.hidden_field(:image, value: @image.id) %>
     <%= f.button :submit, class: 'btn btn-success' %>
     <%= link_to "Cancel", comments_path, class: 'btn btn-primary' %>
-    <%= link_to 'Delete', comment_path, method: :delete, data: { confirm: "Are you sure you want to delete this picture?" }, class: 'btn btn-danger'%>
 
 <% end %>
