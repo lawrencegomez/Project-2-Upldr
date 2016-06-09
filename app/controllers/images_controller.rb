@@ -1,7 +1,7 @@
 class ImagesController < ApplicationController
 
   before_action :set_image, only: [:edit, :show, :update, :destroy, :upvote]
-  before_action :authorize
+  before_action :authorize, except: [:index]
 
   def index
     @images = Image.all.order("created_at DESC")

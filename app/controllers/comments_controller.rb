@@ -11,7 +11,7 @@ class CommentsController < ApplicationController
     @comment = Comment.new(comments_params)
     @comment.user = current_user
     if @comment.save
-      redirect_to comment_path(@comment)
+      redirect_to comments_path
     else
       redirect_to new_comment_path
     end

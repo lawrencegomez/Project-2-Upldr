@@ -11,14 +11,11 @@
     </div>
   <% end %>
 
-  <div class="container col-md-4 col-md-offset-4">
-    <%= f.input :title, input_html: { maxLength: 40, class: 'form-control' }%>
-    <%= f.input :description, input_html: { class: 'form-control' } %>
-    <%= f.input :tags, input_html: { class: 'form-control' } %>
-    <%= f.input :img, input_html: { class: 'form-control' } %>
-    <%= f.button :submit, class: 'btn btn-success' %>
-    <%= link_to "Cancel", images_path, class: 'btn btn-primary' %>
-    <%= link_to 'Delete', images_path, method: :delete, data: { confirm: "Are you sure you want to delete this picture?" }, class: 'btn btn-danger'%>
+  <%= f.input :title, input_html: { maxLength: 40, class: 'form-control' }%>
+  <%= f.input :description, input_html: { class: 'form-control' } %>
+  <%= f.input :tags, input_html: { class: 'form-control' } %>
+  <%= f.input :img, input_html: { class: 'form-control' } %>
+  <%= f.button :submit, class: 'btn btn-success' %>
+  <%= link_to "Cancel", images_path, class: 'btn btn-primary' %>
 
-  </div>
 <% end %>

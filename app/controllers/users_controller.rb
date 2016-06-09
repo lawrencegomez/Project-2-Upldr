@@ -36,6 +36,8 @@ class UsersController < ApplicationController
   end
 
   def destroy
+    @user.destroy
+      redirect_to images_path
   end
 
 private
