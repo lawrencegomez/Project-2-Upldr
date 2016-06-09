@@ -35,6 +35,9 @@ gem 'aws-sdk', '< 2.0'
 
 gem 'masonry-rails', '~> 0.2.4'
 
+# allows things to be votable
+gem 'acts_as_votable', '~> 0.10.0'
+
 gem 'haml', '~> 4.0', '>= 4.0.7'
 
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.6'

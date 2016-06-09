@@ -10,6 +10,10 @@ Rails.application.routes.draw do
   resources :sessions, only: [:new, :create]
 
   resources :comments
-  resources :images
+  resources :images do
+    member do
+      put "like", to: "images#upvote"
+    end
+  end
 
 end

@@ -1,6 +1,6 @@
 class ImagesController < ApplicationController
 
-  before_action :set_image, only: [:edit, :show, :update, :destroy]
+  before_action :set_image, only: [:edit, :show, :update, :destroy, :upvote]
   before_action :authorize
 
   def index
@@ -38,6 +38,11 @@ class ImagesController < ApplicationController
   def destroy
       @image.destroy
         redirect_to images_path
+  end
+
+  def upvote
+    @image.upvote_by current_user
+      redirect_to :back
   end
 
 
