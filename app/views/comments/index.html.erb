@@ -3,7 +3,7 @@
     <h1>Recent Comments</h1><br>
     <% @comments.each do |c| %>
       <% if c.user == current_user %>
-        <%= link_to c.body, edit_comment_path(c.id) %> <br>
+        <%= link_to c.body, edit_image_comment_path(c.image.id, c.id) %> <br>
         Comment added <%= time_ago_in_words(c.created_at) + ' ago by ' + c.user.name %><br><br><br><br>
       <% end %>
     <% end %>
