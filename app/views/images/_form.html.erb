@@ -17,5 +17,7 @@
   <%= f.input :img, input_html: { class: 'form-control' } %>
   <%= f.button :submit, class: 'btn btn-success' %>
   <%= link_to "Cancel", images_path, class: 'btn btn-primary' %>
-
+  <% if @image.user.id == current_user.id %>
+    <%= link_to 'Delete', image_path, method: :delete, data: { confirm: "Are you sure you want to delete this picture?" }, class: 'btn btn-danger'%>
+  <% end %>
 <% end %>
