@@ -14,7 +14,7 @@
   <%= f.input :title, input_html: { maxLength: 40, class: 'form-control' }%>
   <%= f.input :description, input_html: { class: 'form-control' } %>
   <%= f.input :tags, input_html: { class: 'form-control' } %>
-  <%= f.input :img, input_html: { class: 'form-control' } %>
+  <%= f.input :img, input_html: { class: 'form-control' }%>
   <%= f.button :submit, class: 'btn btn-success' %>
   <%= link_to "Cancel", images_path, class: 'btn btn-primary' %>
   <% if @image.user && @image.user.id == current_user.id %>

@@ -3,7 +3,9 @@ class Image < ActiveRecord::Base
 
   belongs_to :user
   has_many :comments , :dependent => :delete_all
-  # accepts_nested_attributes_for :comments
+
+  validates :img, presence: true
+  validates :title, presence: true
 
   has_attached_file :img,
                     :storage => :s3,

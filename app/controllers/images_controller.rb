@@ -15,6 +15,7 @@ class ImagesController < ApplicationController
       flash[:success] = 'Your image has been uploaded sucessfully!'
       redirect_to images_path
     else
+      flash[:danger] = 'Ooops...did you forget to add a title or choose an image?? (Hint: Yes you did)'
       redirect_to new_image_path
     end
   end
