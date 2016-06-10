@@ -49,6 +49,8 @@ gem 'dotenv-rails', :groups => [:development, :test]
 
 gem 'heroku', '~> 3.43', '>= 3.43.3'
 
+gem 'rails_12factor', group: :production
+
 
 # Use Unicorn as the app server
 # gem 'unicorn'
