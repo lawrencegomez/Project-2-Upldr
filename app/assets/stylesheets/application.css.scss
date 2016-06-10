@@ -19,6 +19,40 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
+
+.logo {
+  height: 40px;
+  width: 45px;
+  margin-top: -8px;
+}
+
+.logo2 {
+  max-width: 350px;
+  max-height: 400px;
+}
+
+#buzz {
+  font-style: italic;
+  font-weight: 100;
+  font-size: 40px;
+}
+
+#front {
+  font-style: italic;
+  font-size: 20px;
+  // background-color: #99bbff;
+  padding: 10px;
+  border-radius: 10px;
+  color: black;
+  font-weight: 200;
+}
+
+#quote {
+  width: 900px;
+  text-align: justify;
+  margin: 0 auto;
+}
+
  body {
  	background: #E9E9E9;
  }
@@ -116,3 +150,54 @@
  textarea {
  	min-height: 250px;
  }
+
+ #login-dp{
+    min-width: 250px;
+    padding: 14px 14px 0;
+    overflow:hidden;
+    background-color:rgba(255,255,255,.8);
+}
+#login-dp .help-block{
+    font-size:12px
+}
+#login-dp .bottom{
+    background-color:rgba(255,255,255,.8);
+    border-top:1px solid #ddd;
+    clear:both;
+    padding:14px;
+}
+#login-dp .social-buttons{
+    margin:12px 0
+}
+#login-dp .social-buttons a{
+    width: 49%;
+}
+#login-dp .form-group {
+    margin-bottom: 10px;
+}
+.btn-fb{
+    color: #fff;
+    background-color:#3b5998;
+}
+.btn-fb:hover{
+    color: #fff;
+    background-color:#496ebc
+}
+.btn-tw{
+    color: #fff;
+    background-color:#55acee;
+}
+.btn-tw:hover{
+    color: #fff;
+    background-color:#59b5fa;
+}
+@media(max-width:768px){
+    #login-dp{
+        background-color: inherit;
+        color: #fff;
+    }
+    #login-dp .bottom{
+        background-color: inherit;
+        border-top:0 none;
+    }
+}

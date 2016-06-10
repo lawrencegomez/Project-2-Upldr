@@ -34,6 +34,7 @@ class UsersController < ApplicationController
     if @user.update(user_params)
       redirect_to images_path
     else
+      flash[:danger] = 'You must enter your password in order to edit your account'
       redirect_to edit_user_path(@user)
     end
   end

@@ -5,7 +5,7 @@
     <%= link_to 'Upload Your 1st Image', new_image_path, class: 'btn btn-primary'%>
     <br> <br>
   <% else %>
-    <h1>Image library</h1>
+    <h1><%= @user.name %>'s Images</h1>
     <br>
     <br>
   <% end %>
@@ -18,9 +18,8 @@
           <div class="box panel panel-default">
             <%= link_to (image_tag(i.img.url)), edit_image_path(i.id) %>
               <div class="panel-body">
-                <h5><%= i.description.capitalize %></h5>
-                <h5><%= i.tags.capitalize %></h5>
-                <h6>Uploaded <%= time_ago_in_words(i.created_at) + ' ago by you' %></h6>
+                <h2><%= i.title.capitalize %></h2><hr>
+                <p>Uploaded <%= time_ago_in_words(i.created_at) + ' ago by you' %></p>
               </div>
           </div>
           <% end %>

@@ -9,8 +9,8 @@
     <div class="box panel panel-default">
       <%= link_to image_tag(i.img.url), image_path(i.id) %>
         <div class="panel-body">
-          <h2><%= i.title.capitalize %></h2>
-          <p>Uploaded <%= time_ago_in_words(i.created_at) + ' ago by ' + i.user.name%></p>
+          <h2><%= i.title.capitalize %></h2><hr>
+          <p>Uploaded <%= time_ago_in_words(i.created_at) + ' ago by '%><%= link_to i.user.name, user_path(i.user.id) %></p>
         </div>
         <div class="panel-footer">
           <div class="row">

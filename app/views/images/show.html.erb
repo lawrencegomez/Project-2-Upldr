@@ -5,8 +5,9 @@
         <%= image_tag(@image.img.url) %>
       </div>
       <div class="panel-body">
-        Description: <%= @image.description %>
-        <br><br>
+        <%= @image.description %>
+        <br>
+        <hr>
         <!-- Tags: <%= @image.tags %> <br> <br> -->
         <% @image.comments.each do |c| %>
           <p><%= link_to c.user.name, user_path(c.user.id) %>: <%= c.body %> (<%= time_ago_in_words(c.created_at) + ' ago'%>)</p>

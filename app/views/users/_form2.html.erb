@@ -10,10 +10,10 @@
               <%= f.input :name, input_html: {maxLength: 40, class: 'form-control'} %>
               <%= f.input :email, input_html: {maxLength: 40, class: 'form-control'} %>
               <%= f.input :password, input_html: {maxLength: 20, class: 'form-control'} %>
-              <%= f.hint "**Leave blank if you don't want to change" %>
+              <%= f.hint "**You must enter your password to make changes to your account" %>
               <%= f.input :password_confirmation, input_html: {maxLength: 20, class: 'form-control'} %>
               <%= f.input :avatar, input_html: {class: 'form-control'} %>
-              <%= f.button :submit, 'Submit Changes', class: 'btn btn-success' %>
+              <%= f.button :submit, 'Save Changes', class: 'btn btn-success' %>
               <%= link_to "Cancel", images_path, class: 'btn btn-primary' %>
           </div>
         <% end %>
