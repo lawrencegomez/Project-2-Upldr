@@ -28,8 +28,11 @@
 </div>
 
 <% else %>
+<div class="text-center">
   <h1>No images to dislay :-(</h1>
-  <%= link_to 'Upload Image', new_image_path %>
+  <%= link_to 'Upload Image', new_image_path, class: 'btn btn-primary' %>
+</div>
+
 
   <% end %>
 
