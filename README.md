@@ -48,3 +48,6 @@ A full stack website that allows users to upload images to the cloud where they 
 #For the future
 - Incorporate either Google's Vision API or IBM Watson's Visual Recognition API to analyze images and either generate tags or edit the image, etc.
 
+#References
+- Graphic Springs for the logo (<https://graphicsprings.com/>)
+

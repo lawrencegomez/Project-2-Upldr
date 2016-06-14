@@ -6,6 +6,7 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
+    @user = User.new
   end
 
   def show
@@ -25,7 +26,7 @@ class UsersController < ApplicationController
       flash[:success] = 'You have successfully created an account!'
       redirect_to images_path
     else
-      flash[:danger] = 'Error creating account. Ensure all information '
+      flash[:danger] = 'Error creating account. Ensure all information is entered correctlyyyyy'
       redirect_to :back
     end
   end

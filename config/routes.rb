@@ -4,7 +4,8 @@ Rails.application.routes.draw do
 
   root 'extras#index'
 
-  resources :users
+  resources :users  
+
 
   delete '/logout' => 'sessions#destroy', as: :logout
   resources :sessions, only: [:new, :create]
